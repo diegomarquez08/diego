@@ -8,10 +8,39 @@
     <link href="styles.css" rel="stylesheet" type="text/css">
 </head>
 <body class="container">
-    <h1 class="color_titulo">Contador</h1>
-    <h2 id="mi_texto" class="color_numero">0</h2>
-    <button id="mi_boton">click</button>
-    <p>GPIO state: <strong> %STATE%</strong></p>
+    <h1 class="color_titulo">bienvenido a su garaje</h1>
+    <div class="toolbar">
+        <div class="initial">
+            <form>
+                <input type="text" id="hour">
+                <span id="hourLabel">Hora</span>
+        
+                <input type="text" id="minute">
+                <span id="minuteLabel">Minuto</span>
+        
+                <input type="text" id="second">
+                <span id="secondLabel">segundo</span>
+            </form>
+            
+            <button id="countup">Iniciar cronometraje</button>
+    
+            <button type="button" id="countdown">Iniciar cuenta regresiva</button>
+        </div>
+
+        <span id="hint">Contando hacia atrás 12:20:00</span>
+
+        <button type="button" id="clear">Cuenta regresiva vacía</button>
+        <button type="button" id="pause">Pausar temporizador</button>
+        <button type="button" id="restart">Reclock</button>
+        <button type="button" id="resume">Reanudar temporizador</button>
+        <div>
+
+        </div>
+    </div>
+    <span id="time">00:00:00</span>
+
+    
+    <p>estado de la puerta  <strong> %STATE%</strong></p>
     <p><a href="/on"><button class="button">ON</button></a></p>
     <p><a href="/off"><button class="button button2">OFF</button></a></p>
     <script src="main.js"></script>
