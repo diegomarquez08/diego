@@ -1,0 +1,32 @@
+.container {
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.color_titulo {
+    color: blueviolet;
+}
+
+.color_numero {
+    color: blue;
+    font-size: 68px;
+}
+
+.button {
+    display: inline-block;
+    background-color: #008CBA;
+    border: none;
+    border-radius: 40px;
+    color: white;
+    padding: 16px 40px;
+    text-decoration: none;
+    font-size: 30px;
+    margin: 2px;
+    cursor: pointer;
+  }
+  .button2 {
+    background-color: #f44336;
+  }
