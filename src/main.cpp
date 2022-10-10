@@ -18,10 +18,10 @@ String processor(const String& var){
   Serial.println(var);
   if(var == "STATE"){
     if(digitalRead(ledPin)){
-      ledState = "ON";
+      ledState = "PUERTA ABIERTA";
     }
     else{
-      ledState = "OFF";
+      ledState = "PUERTA CERRADA";
     }
     Serial.print(ledState);
     return ledState;
