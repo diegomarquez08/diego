@@ -10,10 +10,16 @@ const char* password = "Sadiju40";
 
 AsyncWebServer server(80);
 
+
+
+const int output26 = 26;
+const int output27 = 27;
+
 const int ledPin = 2;
 String ledState;
+String output26State ;
+String output27State ;
 
-// Replaces placeholder with LED state value
 String processor(const String& var){
   Serial.println(var);
   if(var == "STATE"){
@@ -32,6 +38,9 @@ String processor(const String& var){
 void setup() {
   Serial.begin(115200);
   pinMode(ledPin, OUTPUT);
+  pinMode(output26, OUTPUT); 
+  pinMode(output27, OUTPUT);
+  
   // Initialize SPIFFS
   if(!SPIFFS.begin(true)){
     Serial.println("An Error has occurred while mounting SPIFFS");
@@ -50,7 +59,7 @@ void setup() {
 
   // Route for root / web page
   server.on("/", HTTP_GET, [](AsyncWebServerRequest *request){
-    request->send(SPIFFS, "/shrek.html");
+    request->send(SPIFFS, "/body.html");
   });
 
   // Route to load style.css file
@@ -65,15 +74,21 @@ void setup() {
 
   // Route to set GPIO to HIGH
   server.on("/on", HTTP_GET, [](AsyncWebServerRequest *request){
-    digitalWrite(ledPin, HIGH);    
-    request->send(SPIFFS, "/shrek.html", String(), false, processor);
+    digitalWrite(ledPin, HIGH); 
+     digitalWrite(output27, LOW);    
+      digitalWrite(output26, HIGH);   
+    request->send(SPIFFS, "/body.html", String(), false, processor);
   });
-  
+
   // Route to set GPIO to LOW
   server.on("/off", HTTP_GET, [](AsyncWebServerRequest *request){
-    digitalWrite(ledPin, LOW);    
-    request->send(SPIFFS, "/shrek.html", String(), false, processor);
+    digitalWrite(ledPin, LOW);  
+        digitalWrite(output26, LOW);   
+     digitalWrite(output27, HIGH);   
+    request->send(SPIFFS, "/body.html", String(), false, processor);
   });
+
+  
 
   server.begin();
 }

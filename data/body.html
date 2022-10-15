@@ -8,41 +8,29 @@
     <link href="styles.css" rel="stylesheet" type="text/css">
 </head>
 <body class="container">
+
+
+    <h1 class="titulo">Security Garaje 
+        <hr>
+    </h1>
+    
     <h1 class="color_titulo">bienvenido a su garaje</h1>
-    <div class="toolbar">
-        <div class="initial">
-            <form>
-                <input type="text" id="hour">
-                <span id="hourLabel">Hora</span>
-        
-                <input type="text" id="minute">
-                <span id="minuteLabel">Minuto</span>
-        
-                <input type="text" id="second">
-                <span id="secondLabel">segundo</span>
-            </form>
-            
-            <button id="countup">Iniciar cronometraje</button>
-    
-            <button type="button" id="countdown">Iniciar cuenta regresiva</button>
-        </div>
 
-        <span id="hint">Contando hacia atrás 12:20:00</span>
+    <div id="cronometro">
+        <div id="reloj">
+            0 00 00 00
+          </div>
+        <form name="cron" action="#">
+          <input type="button" value="Empezar" name="boton1"   />
+          <input type="button" value="Parar" name="boton2"  /><br/>
+        </form>
+      </div>
 
-        <button type="button" id="clear">Cuenta regresiva vacía</button>
-        <button type="button" id="pause">Pausar temporizador</button>
-        <button type="button" id="restart">Reclock</button>
-        <button type="button" id="resume">Reanudar temporizador</button>
-        <div>
-
-        </div>
-    </div>
-    <span id="time">00:00:00</span>
 
     
-    <p>estado de la puerta <strong> estado</strong></p>
-    <p><a href="/on"><button class="button">ON</button></a></p>
-    <p><a href="/off"><button class="button button2">OFF</button></a></p>
+    <p>estado de la puerta <strong> %STATE%</strong></p>
+    <p><a href="/on"><button class="button">abrir</button></a></p>
+    <p><a href="/off"><button class="button2">cerrar</button></a></p>
     <script src="main.js"></script>
 </body>
 </html>
