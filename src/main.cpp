@@ -84,10 +84,10 @@ void setup() {
 
      digitalWrite(output27, LOW);   
      digitalWrite(ledPin, HIGH);  
-      digitalWrite(output26, HIGH);   
+      digitalWrite(output26, HIGH);
       delay(tiempomilisegundos);
-    
-        digitalWrite(output26, LOW);
+      digitalWrite(output26, LOW);   
+     
     request->send(SPIFFS, "/body.html", String(), false, processor);
   });
 
@@ -95,10 +95,10 @@ void setup() {
   server.on("/off", HTTP_GET, [](AsyncWebServerRequest *request){
     digitalWrite(ledPin, LOW);  
         digitalWrite(output26, LOW);   
-     digitalWrite(output27, HIGH);   
-      delay(tiempomilisegundos);
-
-      digitalWrite(output27, LOW); 
+     digitalWrite(output27, HIGH); 
+        delay(tiempomilisegundos);
+      digitalWrite(output27, LOW);    
+     
 
     request->send(SPIFFS, "/body.html", String(), false, processor);
    

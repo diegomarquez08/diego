@@ -1,3 +1,6 @@
+
+
+
 window.onload = function() {
 
     visor=document.getElementById("reloj"); //localizar pantalla del reloj
