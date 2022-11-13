@@ -90,3 +90,4 @@ window.onload = function() {
          document.cron.boton2.value="Parar"; //estado inicial segundo botón
          document.cron.boton2.disabled=true;  //segundo botón desactivado	 
          }	
+         

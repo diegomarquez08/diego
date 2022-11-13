@@ -28,9 +28,33 @@
 
 
     
-    <p>estado de la puerta <strong> %STATE%</strong></p>
+    <h1 class="color_titulo">estado de la puerta <strong> %ESTADO%</strong></h1>
     <p><a href="/on"><button class="button">abrir</button></a></p>
     <p><a href="/off"><button class="button2">cerrar</button></a></p>
     <script src="main.js"></script>
+    <script type="module">
+      // Import the functions you need from the SDKs you need
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-app.js";
+      import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-analytics.js";
+      // TODO: Add SDKs for Firebase products that you want to use
+      // https://firebase.google.com/docs/web/setup#available-libraries
+    
+      // Your web app's Firebase configuration
+      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+      const firebaseConfig = {
+        apiKey: "AIzaSyDVsLH5fOm4wz3PLUayHW99AytTpXqtik4",
+        authDomain: "security-garage.firebaseapp.com",
+        projectId: "security-garage",
+        storageBucket: "security-garage.appspot.com",
+        messagingSenderId: "680499010716",
+        appId: "1:680499010716:web:0033576e7be09097766159",
+        measurementId: "G-RL6JVCMNM4"
+      };
+    
+      
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const analytics = getAnalytics(app);
+    </script>
 </body>
 </html>

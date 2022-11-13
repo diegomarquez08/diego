@@ -5,10 +5,13 @@
 #include "ESPAsyncWebServer.h"
 #include "SPIFFS.h"
 
+
 const char* ssid = "MARCELA";
 const char* password = "Sadiju40";
 
 AsyncWebServer server(80);
+int tiempomilisegundos=2000;
+
 
 
 
@@ -20,9 +23,11 @@ String ledState;
 String output26State ;
 String output27State ;
 
+
+
 String processor(const String& var){
   Serial.println(var);
-  if(var == "STATE"){
+  if(var == "ESTADO"){
     if(digitalRead(ledPin)){
       ledState = "PUERTA ABIERTA";
     }
@@ -50,7 +55,7 @@ void setup() {
   // Connect to Wi-Fi
   WiFi.begin(ssid, password);
   while (WiFi.status() != WL_CONNECTED) {
-    delay(1000);
+    delay(2000);
     Serial.println("Connecting to WiFi..");
   }
 
@@ -71,12 +76,18 @@ void setup() {
   server.on("/main.js", HTTP_GET, [](AsyncWebServerRequest *request){
     request->send(SPIFFS, "/main.js");
   });
-
+  
   // Route to set GPIO to HIGH
   server.on("/on", HTTP_GET, [](AsyncWebServerRequest *request){
-    digitalWrite(ledPin, HIGH); 
-     digitalWrite(output27, LOW);    
+    
+    
+
+     digitalWrite(output27, LOW);   
+     digitalWrite(ledPin, HIGH);  
       digitalWrite(output26, HIGH);   
+      delay(tiempomilisegundos);
+    
+        digitalWrite(output26, LOW);
     request->send(SPIFFS, "/body.html", String(), false, processor);
   });
 
@@ -85,8 +96,14 @@ void setup() {
     digitalWrite(ledPin, LOW);  
         digitalWrite(output26, LOW);   
      digitalWrite(output27, HIGH);   
+      delay(tiempomilisegundos);
+
+      digitalWrite(output27, LOW); 
+
     request->send(SPIFFS, "/body.html", String(), false, processor);
+   
   });
+
 
   
 
@@ -94,5 +111,8 @@ void setup() {
 }
 
 void loop() {
+
+
+
   // put your main code here, to run repeatedly:
 }
